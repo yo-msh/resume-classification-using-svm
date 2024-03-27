@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume Category Prediction</title>
+  <style>
+   body {
+    font-family: Arial, sans-serif;
+    font-size: 42px;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+   }
+   h1 {
+    color: #333;
+    text-align: center;
+    padding: 20px 0;
+   }
+   form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 50px;
+   }
+   input[type="file"] {
+    padding: 10px;
+   }
+   input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    font-size: 22px;
+    color: white;
+    border: none;
+    cursor: pointer;
+   }
+   input[type="submit"]:hover {
+    font-size: 20px;
+    background-color: #45a049;
+   }
+  </style>
+ </head>
+ <body>
+  <h1>Resume Category Prediction</h1>
+  <form method="post" action="/predict" enctype="multipart/form-data">
+   <input type="file" name="file" accept=".docx" required />
+   {% if matched_file %}
+   <p>File name matched: {{ matched_file }}</p>
+   <input type="submit" value="Predict" />
+   {% else %}
+   <input type="submit" value="Check Match" />
+   {% endif %}
+  </form>
+ </body>
+</html>
